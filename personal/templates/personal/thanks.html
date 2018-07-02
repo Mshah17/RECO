@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>RECO - Recommnedation</title>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\Shah\RECO2\personal\static\mycss.css' %}"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="{% static 'medical.png' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-light" style="background-color:white">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand text-success" href="http://127.0.0.1:8000/reco/">RECO</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsiblenavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsiblenavbar">
+            <ul class="nav navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/pharmacy/">Pharmacy</a></li>
+                <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/contactus/">Contact us</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/privacy/">Privacy Policy</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/disclaimer/">Disclaimer</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if  done == 'no' %}
+                    <li class="nav-item"><a class="nav-link"
+                                            onclick="document.getElementById('signup_id_div').style.display = 'block'"
+                                            href="#">
+                    Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                                            onclick="document.getElementById('login_id_div').style.display = 'block'"
+                                            href="#">
+                    Login</a></li>
+                {% else %}
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{ username }}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid" id="signup_id_div">
+    <button onclick="document.getElementById('signup_id_div').style.display = 'none'" id="close_button"><i
+            class="fa fa-times" aria-hidden="true"></i></button>
+
+    <form method="get" action="{% url 'Authentication' %}">
+        <h4 class="user_name">User Name: </h4>
+
+        <input class="input_signup_name_id" type="text" placeholder="  Enter your Name " name="fname1" required>
+
+        <h4 class="user_name">EmailID: </h4>
+
+
+        <input class="input_signup_name_id" type="email" placeholder="  Enter your Email Id" name="fname2" required>
+        <h4 class="user_name">Password:</h4>
+
+        <input class="input_signup_name_id" type="password" placeholder="  Enter Password" name="fname3" required>
+        <h4 class="user_name">Confirm Password: </h4>
+
+        <input class="input_signup_name_id" type="password" placeholder="  Confirm Password" name="fname4" required>
+
+        <center><input class="button_submit_Signup_id" type="submit" value="submit"></center>
+    </form>
+    <br><br>
+</div>
+
+
+<div class="container-fluid" id="login_id_div">
+    <button onclick="document.getElementById('login_id_div').style.display = 'none'" id="close_button_login"><i
+            class="fa fa-times" aria-hidden="true"></i></button>
+    <form method="get" action="{% url 'login' %}">
+        <h4 class="user_name">User Name: </h4>
+
+        <input class="input_signup_name_id" type="text" placeholder="   Enter your Name" name="fname5" required>
+
+        <h4 class="user_name">Password: </h4>
+        <input class="input_signup_name_id" type="password" placeholder="  Enter Password" name="fname6" required>
+        <center><input onclick="document.getElementById('login_id_div').style.display = 'none'"
+                       class="button_submit_Signup_id" type="submit" value="submit"></center>
+        <br><br>
+    </form>
+</div>
+
+<div id="body_id_2" onclick="closeSignup(), closeLogin()">
+    <div style="clear: both"></div>
+</div>
+<br><br><br><br><br>
+<h1 style="text-align: center" class="text-info"><q>Thanks For Your Feedback</q></h1>
+<br><br><br><br><br><br>
+<footer class="page-footer font-small indigo pt-0">
+    <div class="container">
+        <hr class="rgba-white-light" style="margin: 0 15%;">
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+            <div class="col-md-8 col-12 mt-5">
+                <p style="line-height: 1.7rem">RECO is a Recommendation Web
+                    Application which prescribes medicines on the basis of their symptoms or diseases.
+                    Nowadays, to visit a doctor for treatment is a time consuming due to rush of patients in clinic.
+                    To filter out this problem, we are introducing a web app which help people to get through the
+                    medicines
+                    for the disease they are suffering.</p>
+            </div>
+        </div>
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+    </div>
+    <div class="footer-copyright py-3 text-center">
+        <p>Created By : </p>
+        <kbd>Shah Moksh | Saumya Vora | Alap Tekadpande</kbd>
+    </div>
+</footer>
+
+</body>
+</html>

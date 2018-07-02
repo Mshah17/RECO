@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\Shah\RECO2\personal\static\mycss.css' %}"/>
+    <title>Disclaimer</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color:white">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand text-success" href="#">RECO</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsiblenavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsiblenavbar">
+        <ul class="nav navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/pharmacy/">Pharmacy</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/contactus/">Contact us</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/privacy/">Privacy Policy</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/disclaimer/">Disclaimer</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+                {% if  done == 'no' %}
+                    <li class="nav-item"><a class="nav-link"
+                                            onclick="document.getElementById('signup_id_div').style.display = 'block'"
+                                            href="#">
+                    Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                                            onclick="document.getElementById('login_id_div').style.display = 'block'"
+                                            href="#">
+                    Login</a></li>
+                {% else %}
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{ username }}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+      </div>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <div class="container col-sm-12">
+    <h3 class="text-center col-sm-12 text-success">Medical Disclaimer</h3>
+    <br>
+    <p  class="col-sm-12">The information on this site is not intended or implied to be a substitute for professional medical advice, diagnosis or treatment.
+     All content, including text, graphics, images and information, contained on or available through this web site is for general
+     information purposes only.
+     This website contains general information about medical conditions and treatments.
+     The information is not advice, and should not be treated as such.</p>
+
+      <h4  class="col-sm-6">Limitation of warranties</h4>
+
+      <p class="col-sm-12">The medical information on this website is provided “as is” without any representations or warranties, express or implied.
+        RECO makes no representations or warranties in relation to the medical information on this website.</p>
+
+        <ul type="*">Without prejudice to the generality of the foregoing paragraph, RECO does not warrant that:
+
+	         <li>the medical information on this website will be constantly available, or available at all; or
+            <li>the medical information on this website is complete, true, accurate, up-to-date, or non-misleading.
+        </ul>
+        <h4 class="col-sm-6">Professional assistance</h4>
+        <ol type="1">
+        You must not rely on the information on this website as an alternative to medical advice from your doctor or other professional
+        healthcare provider.
+          <li>If you have any specific questions about any medical matter you should consult your doctor or other professional healthcare provider.</li>
+          <li>If you think you may be suffering from any medical condition you should seek immediate medical attention.</li>
+          <li>You should never delay seeking medical advice, disregard medical advice, or discontinue medical treatment because of information on this website.</li>
+        </ol>
+        <h4 class="col-sm-6">Liability</h4>
+
+        <p class="col-sm-12">Nothing in this medical disclaimer will limit any of our liabilities in any way that is not permitted under applicable law, or
+  exclude any of our liabilities that may not be excluded under applicable law.</p>
+        <p class="col-sm-12">You must retain the "Credit" section in this document. If you wish to use the document without the "Credit" section
+  (e.g. to project a more professional image) then you can get a license to do so here:</p>
+        <p class="col-sm-12">It is an infringement of our copyright to use the document without the "Credit" section and without paying the license fee.</p>
+</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>

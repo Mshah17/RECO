@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\Shah\RECO2\personal\static\mycss.css' %}"/>
+    <title>Privacy Policy</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color:white">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand text-success" href="#">RECO</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsiblenavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsiblenavbar">
+        <ul class="nav navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/pharmacy/">Pharmacy</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/contactus/">Contact us</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/privacy/">Privacy Policy</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/reco/disclaimer/">Disclaimer</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+                {% if  done == 'no' %}
+                    <li class="nav-item"><a class="nav-link"
+                                            onclick="document.getElementById('signup_id_div').style.display = 'block'"
+                                            href="#">
+                    Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                                            onclick="document.getElementById('login_id_div').style.display = 'block'"
+                                            href="#">
+                    Login</a></li>
+                {% else %}
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{ username }}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+      </div>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <div class="container col-sm-12">
+      <h3 class="text-center col-sm-12 text-success">Medical Privacy Policy</h3><br>
+      <ol type="1" class="col-sm-12">
+       <li class="col-sm-12">This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII)
+       is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with
+       other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy
+       carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in
+       accordance with our website.</li><br>
+
+       <li class="col-sm-12">What personal information do we collect from the people that visit our blog, website or app?
+         <p> When ordering or registering on our site, as appropriate, you may be asked to enter your name, email address, mailing address,
+         phone number or other details to help you with your experience.</p>
+       </li><br>
+
+      <li class="col-sm-12">When do we collect information?
+        <p>We collect information from you when you register on our site, place an order, fill out a form or enter information on our site.
+        Provide us with feedback on our products or services.</p>
+      </li><br>
+
+      <li class="col-sm-12">How do we use your information?
+        <p>- We may use the information we collect from you when you register, sign up for our newsletter, respond to a survey or marketing communication,
+        surf the website, or use certain other site features in the following ways:</p>
+        <ul type="*">
+          <li>To personalize your experience and to allow us to deliver the type of content and product offerings in which you are most interested.</li>
+          <li>To improve our website in order to better serve you.</li>
+          <li>To allow us to better service you in responding to your customer service requests.</li>
+          <li>To ask for ratings and reviews of services or products.</li>
+        </ul>
+      </li></ol><br>
+      <h4 class="col-sm-6">Google</h4>
+      <p class="col-sm-12">Google's advertising requirements can be summed up by Google's Advertising Principles. They are put in place to provide a positive experience for users.
+      We have not enabled Google AdSense on our site but we may do so in the future.</p>
+
+      <h4 class="col-sm-6">COPPA (Children Online Privacy Protection Act)</h4>
+      <p class="col-sm-12">When it comes to the collection of personal information from children under the age of 13 years old, the Children's Online Privacy Protection Act (COPPA)
+      puts parents in control. The Federal Trade Commission, United States' consumer protection agency,enforces the COPPA Rule, which spells out what
+      operators of websites and online services must do to protect children's privacy and safety online.
+      We do not specifically market to children under the age of 13 years old.</p>
+
+      <h4 class="col-sm-6">CAN SPAM Act</h4>
+      <p class="col-sm-12">The CAN-SPAM Act is a law that sets the rules for commercial email, establishes requirements for commercial messages, gives recipients
+      the right to have emails stopped from being sent to them, and spells out tough penalties for violations.</p>
+
+      <ul type="*">We collect your email address in order to:
+      <li>Process orders and to send information and updates pertaining to orders.</li>
+      <li>Send you additional information related to your product and/or service</li>
+      </ul>
+      <br>
+      <p class="col-sm-12">To be in accordance with CANSPAM, we agree to the following:
+        If at any time you would like to unsubscribe from receiving future emails, you can email us at
+        and we will promptly remove you from ALL correspondence.</p>
+
+<h4 class="col-sm-6">Contacting Us</h4>
+<p class="col-sm-12">
+If there are any questions regarding this privacy policy, you may contact us using the information below.</p>
+
+<p class="col-sm-12">recomedical.com<br>
+  Ahmedabad,<br>
+  India<br>
+  recomedical@support.com<br></p>
+  <kbd>Last Edited on 2018-05-16</kbd>
+<div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>
